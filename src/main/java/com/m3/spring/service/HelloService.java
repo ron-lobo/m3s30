@@ -1,4 +1,4 @@
-package com.m3.spring;
+package com.m3.spring.service;
 
 import com.m3.spring.Deps.DepA;
 import com.m3.spring.Deps.DepB;
@@ -14,6 +14,7 @@ public class HelloService {
 	}
 
 	public void printout(String mesg) {
+		depA.doNothing();
 		System.out.println(mesg);
 	}
 }

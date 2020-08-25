@@ -1,5 +1,7 @@
 package com.m3.spring;
 
+import com.m3.spring.service.HelloService;
+
 public class HelloSpringClient {
 
 	private HelloService helloService;
