@@ -1,20 +1,16 @@
-package com.m3.spring;
+package com.m3.spring.config;
 
 import com.m3.spring.Deps.DepA;
 import com.m3.spring.Deps.DepB;
+import com.m3.spring.service.HelloService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MyConfig {
+public class MyConfig2 {
 
 	@Bean
-	public DepA createDepA() {
-		return new DepA();
-	}
-
-	@Bean
-	public DepB createDepB() {
-		return new DepB();
+	public HelloService getHelloService(DepA depA, DepB depB) {
+		return new HelloService(depA, depB);
 	}
 }

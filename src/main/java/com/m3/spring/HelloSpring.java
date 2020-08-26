@@ -2,26 +2,19 @@ package com.m3.spring;
 
 import com.m3.spring.Deps.DepA;
 import com.m3.spring.Deps.DepB;
+import com.m3.spring.config.MyConfig;
 import com.m3.spring.service.GoodByeService;
 import com.m3.spring.service.HelloService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration
-@ComponentScan
+@ComponentScan // (basePackages={"com.m3.spring.service"})
 public class HelloSpring {
 
 	@Bean
 	public HelloSpringClient getHelloSpringClient(HelloService helloService) {
 		return new HelloSpringClient(helloService);
-	}
-
-	@Bean
-	public HelloService getHelloService(DepA depA, DepB depB) {
-		return new HelloService(depA, depB);
 	}
 
 	public static void main(String[] args) {
