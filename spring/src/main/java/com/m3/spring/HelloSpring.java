@@ -1,12 +1,13 @@
 package com.m3.spring;
 
-import com.m3.spring.Deps.DepA;
-import com.m3.spring.Deps.DepB;
 import com.m3.spring.config.MyConfig;
 import com.m3.spring.service.GoodByeService;
 import com.m3.spring.service.HelloService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan // (basePackages={"com.m3.spring.service"})
