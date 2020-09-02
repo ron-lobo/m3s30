@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My 2nd Web Page</title>
     <link rel="stylesheet" type="text/css" href="MyStyle.css"/>
+    <script src="introToJS.js" defer></script>
     <style>
         body {
             /* background-image: url("bg-pastel.jpg"); */
@@ -15,13 +16,17 @@
     </style>
 </head>
 
-<body>
+<body onload="setInterval('updateDate()', 1000);">
     <h1>Hello There</h1>
     <p><a href="index.html">Home Page</a></p>
     <p><a href="index.html#listExamples">Examples with lists</a></p>
     <h2 id="greeting">Hello Graduates</h2>
-    <p><button onclick="document.getElementById('greeting').innerHTML='Goodbye Grads'">toggle</button></p>
+    <p><button onclick="toggleText()">toggle</button></p>
+    <p>Date is: <div id="datePoint"></div></p>
     <p></p>
-    <p></p>
+    <!-- <script>
+        prompt("hey now!");
+        console.log('hey NOW');
+    </script> -->
 </body>
 </html>
