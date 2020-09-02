@@ -18,7 +18,7 @@ h2 {
     color: #00FF00;
 }
 
-h1, h2, h3 {
+h1, h3 {
     color: chocolate;    
 }
 
@@ -31,4 +31,13 @@ h1, h2, h3 {
     text-align: left;
     color: pink;
 
+}
+
+table {
+    border: 1px solid black;
+}
+
+td, tr {
+    border: 2px solid rebeccapurple;
+    padding: 0px
 }
