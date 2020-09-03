@@ -115,7 +115,7 @@ function sumExercises() {
   };
 
   console.log("replacement.originalSet=" + replacement.originalSet); // not changed
-  let myNewArray = replaceInArray3(replacement);
+  let myNewArray = replaceInArray4(replacement);
   console.log("myNewArray=" + myNewArray); // new array with replacements!
   console.log("replacement.originalSet=" + replacement.originalSet); // not changed
 }
@@ -156,11 +156,15 @@ function replaceInArray2(replacement) {
 
 function replaceInArray3(obj) {
   let newArray = [];
-  obj.originalSet.forEach(item =>
-      newArray.push(obj.toReplace.includes(item) ? obj.newValue : item));
+  obj.originalSet.forEach(
+      item => newArray.push(obj.toReplace.includes(item) ? obj.newValue : item));
   return newArray;
 }
 
+function replaceInArray4(obj) {
+    return obj.originalSet.map(
+        element => obj.toReplace.includes(element) ? obj.newValue : element);
+}
 
 function sumSharePrices(shares) {
   let total = 0;
