@@ -3,7 +3,6 @@ console.log("intro return value = " + intro());
 testExists();
 sumExercises();
 
-
 function intro() {
   let i = 0;
   let j = "hello world";
@@ -92,31 +91,100 @@ function sumExercises() {
   ];
   let sumShares = sumSharePrices2(shares1); // 330.24
   console.log("sumShares=" + sumShares);
+
+  //   Create a function that takes an object with originalSet, toReplace and newValue properties.
+  // Each value in toReplace is replaced with newValue within originalSet
+  // It will return a new array, and will not modify the argument.
+  let replacement = {
+    originalSet: [
+      "FRF",
+      "USD",
+      "GBP",
+      "ITL",
+      "FRF",
+      "YEN",
+      "USD",
+      "FRF",
+      "EUR",
+      "YEN",
+      "ITL",
+      "DEM",
+    ],
+    toReplace: ["ESP", "FRF", "ITL", "DEM"],
+    newValue: "EUR",
+  };
+
+  console.log("replacement.originalSet=" + replacement.originalSet); // not changed
+  let myNewArray = replaceInArray3(replacement);
+  console.log("myNewArray=" + myNewArray); // new array with replacements!
+  console.log("replacement.originalSet=" + replacement.originalSet); // not changed
 }
 
-function sumSharePrices(shares){
-    let total = 0;
-    const properties = Object.getOwnPropertyNames(shares[0]);
-    for(let prop of properties){
-      if(typeof shares[0][prop] == "number"){
-        for(let obj of shares){
-          total += obj[prop];
-        }  
-      }  
-    }  
-    return total;
+function replaceInArray(replacement) {
+  let originalSet = replacement["originalSet"];
+  let toReplace = replacement["toReplace"];
+  let newValue = replacement["newValue"];
+  let newArray = originalSet.slice();
+  for (i = 0; i < originalSet.length; i++) {
+    for (j = 0; j < toReplace.length; j++) {
+      if (originalSet[i] == toReplace[j]) {
+        newArray[i] = newValue;
+      }
+    }
   }
+  return newArray;
+}
 
-  function sumSharePrices2(shares) {
-    let sum = 0;
-    shares.forEach(share => {
-        for (let key in share) {
-            if (typeof share[key] == "number") {
-                sum += share[key];
-            }
-        }
-    });
-    return sum;
+function replaceInArray1(replacement) {
+  return [...replacement.originalSet].map((value) => {
+    if (replacement.toReplace.indexOf(value) != -1) {
+      return replacement.newValue;
+    }
+    return value;
+  });
+}
+
+function replaceInArray2(replacement) {
+  let replacedArray = replacement.originalSet.slice();
+  for (let i = 0; i < replacement.originalSet.length; i++) {
+    if (replacement.toReplace.indexOf(replacement.originalSet[i]) != -1) {
+      replacedArray[i] = replacement.newValue;
+    }
+  }
+  return replacedArray;
+}
+
+function replaceInArray3(obj) {
+  let newArray = [];
+  obj.originalSet.map(item =>
+      newArray.push(obj.toReplace.includes(item) ? obj.newValue : item));
+  return newArray;
+}
+
+
+function sumSharePrices(shares) {
+  let total = 0;
+  const properties = Object.getOwnPropertyNames(shares[0]);
+  for (let prop of properties) {
+    if (typeof shares[0][prop] == "number") {
+      for (let obj of shares) {
+        total += obj[prop];
+      }
+    }
+  }
+  return total;
+}
+
+function sumSharePrices2(shares) {
+  let sum = 0;
+  shares.forEach((share) => {
+    for (let key in share) {
+      if (typeof share[key] == "number") {
+        sum += share[key];
+      }
+    }
+  });
+  return sum;
 }
 
 function calcSumOfArray(arr) {
