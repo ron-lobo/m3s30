@@ -156,7 +156,7 @@ function replaceInArray2(replacement) {
 
 function replaceInArray3(obj) {
   let newArray = [];
-  obj.originalSet.map(item =>
+  obj.originalSet.forEach(item =>
       newArray.push(obj.toReplace.includes(item) ? obj.newValue : item));
   return newArray;
 }
