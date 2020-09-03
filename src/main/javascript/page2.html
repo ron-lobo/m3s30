@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My 2nd Web Page</title>
-    <link rel="stylesheet" type="text/css" href="MyStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="MyStyle.css" />
     <script src="introToJS.js" defer></script>
     <style>
         body {
-            /* background-image: url("bg-pastel.jpg"); */
-            background-image: url("https://picsum.photos/500");
+            background-image: url("bg-pastel.jpg");
+            /* background-image: url("https://picsum.photos/500"); */
             background-repeat: no-repeat;
             background-size: 2000px 2000px;
         }
@@ -22,11 +23,43 @@
     <p><a href="index.html#listExamples">Examples with lists</a></p>
     <h2 id="greeting">Hello Graduates</h2>
     <p><button onclick="toggleText()">toggle</button></p>
-    <p>Date is: <div id="datePoint"></div></p>
+    <p>Date is:
+    <div id="datePoint"></div>
+    </p>
     <p></p>
+
+    <form action="app/input.php">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="Ron">
+        <br>
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd">
+        <br>
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" name="dob">
+        <br>
+        <label for="email">email:</label>
+        <input type="email" id="email" name="email">
+        <p>
+        <label for="creditCard">Credit Card Number:</label>
+        <input type="text" id="creditCard" name="creditCard" value="1234"><br>
+        <input type="radio" id="visa" name="cc" value="Visa">
+        <label for="visa">Visa</label><br>
+        <input type="radio" id="mc" name="cc" value="MasterCard">
+        <label for="mc">MasterCard</label><br>
+        <input type="radio" id="amex" name="cc" value="Amex">
+        <label for="amex">Amex</label><br>
+        <input type="radio" id="cash" name="cc" value="Cash">
+        <label for="cash">Cash</label>
+        <p>
+            <input type="submit">
+            <input type="reset">
+    </form>
+
     <!-- <script>
         prompt("hey now!");
         console.log('hey NOW');
     </script> -->
 </body>
+
 </html>
