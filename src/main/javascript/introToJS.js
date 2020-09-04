@@ -1,7 +1,15 @@
-console.log("hi");
-console.log("intro return value = " + intro());
-testExists();
-sumExercises();
+import Bank from './Bank.js';
+
+
+main();
+
+function main() {
+  console.log("hi");
+  console.log("intro return value = " + intro());
+  testExists();
+  sumExercises();
+  testBank();
+}
 
 function intro() {
   let i = 0;
@@ -31,7 +39,7 @@ function toggleText() {
   }
 }
 
-function updateDate() {
+window.updateDate = function() {
   document.getElementById("datePoint").innerHTML = new Date();
 }
 
@@ -156,14 +164,16 @@ function replaceInArray2(replacement) {
 
 function replaceInArray3(obj) {
   let newArray = [];
-  obj.originalSet.forEach(
-      item => newArray.push(obj.toReplace.includes(item) ? obj.newValue : item));
+  obj.originalSet.forEach((item) =>
+    newArray.push(obj.toReplace.includes(item) ? obj.newValue : item)
+  );
   return newArray;
 }
 
 function replaceInArray4(obj) {
-    return obj.originalSet.map(
-        element => obj.toReplace.includes(element) ? obj.newValue : element);
+  return obj.originalSet.map((element) =>
+    obj.toReplace.includes(element) ? obj.newValue : element
+  );
 }
 
 function sumSharePrices(shares) {
@@ -201,6 +211,7 @@ function calcSumOfArray(arr) {
   return arr.reduce((a, b) => a + b, 0);
 }
 
+// pre ECMAScript 2015
 function createBank(name, country, rank) {
   let bank = {
     name: name,
@@ -213,29 +224,17 @@ function createBank(name, country, rank) {
   return bank;
 }
 
-class Bank {
-  constructor(name, country, rank) {
-    if (name === undefined) {
-      this.name = null;
-    } else {
-      this.name = name;
-    }
-    this.country = country === undefined ? null : country;
-    this.rank = rank === undefined ? null : rank;
-  }
+function testBank() {
+  let bank1 = createBank("hsbc", "UK", 3);
+  let bank2 = createBank("jpmc", "USA", 2);
+  let bank3 = createBank("boa", "USA", 1);
 
-  getRank() {
-    return this.rank;
-  }
+  let bank4 = new Bank();
+  let bank5 = new Bank("hsbc", "UK", 3);
+
+  console.log(bank1);
+  console.log(bank4);
+  console.log(bank5);
+
+  console.log(bank5.getRank());
 }
-
-let bank1 = createBank("hsbc", "UK", 3);
-let bank2 = createBank("jpmc", "USA", 2);
-let bank3 = createBank("boa", "USA", 1);
-
-let bank0 = new Bank();
-let bank1a = new Bank("hsbc", "UK", 3);
-
-console.log(bank1);
-console.log(bank0);
-console.log(bank1a);
