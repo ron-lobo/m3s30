@@ -7,6 +7,7 @@ document.onload = function() {
   testExists();
   sumExercises();
   testBank();
+  document.getElementById("gradButton").onclick = toggleText;
 }();
 
 function intro() {

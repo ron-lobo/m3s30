@@ -18,15 +18,26 @@
 </head>
 
 <body onload="setInterval('updateDate()', 1000);">
-    <h1>Hello There</h1>
-    <p><a href="index.html">Home Page</a></p>
-    <p><a href="index.html#listExamples">Examples with lists</a></p>
-    <h2 id="greeting">Hello Graduates</h2>
-    <p><button onclick="toggleText()">toggle</button></p>
-    <p>Date is:
-    <div id="datePoint"></div>
-    </p>
-    <p></p>
+    <header style="background-color: cornsilk;">
+        <!-- navbar -->
+        <a href="index.html">Home</a>
+        <a href="">News</a>
+        <a href="">Sports</a>
+        <a href="">TV</a>
+        <a href="page3.html">Page III</a>
+    </header>
+
+    <section>
+        <h1>Hello There</h1>
+        <p><a href="index.html">Home Page</a></p>
+        <p><a href="index.html#listExamples">Examples with lists</a></p>
+        <h2 id="greeting">Hello Graduates</h2>
+        <p><button id="gradButton" onclick="toggleText()">toggle</button></p>
+        <p>Date is:
+        <div id="datePoint"></div>
+        </p>
+        <p></p>
+    </section>
 
     <form action="app/input.php">
         <label for="name">Name:</label>
@@ -51,15 +62,40 @@
             <label for="amex">Amex</label><br>
             <input type="radio" id="cash" name="cc" value="Cash">
             <label for="cash">Cash</label>
+            <br>
+            <label>Comments</label>
+            <textarea rows=10 cols=90 id="textarea1" name="textarea1"></textarea>
         <p>
             <input type="submit">
             <input type="reset">
     </form>
 
     <p>
+    <button id="tableToggle"">Show Table</button>
+    <br>
     <div id="sharesTable"></div>
     </p>
 
+    <div>
+        <div>
+            <div>hello</div>
+            <div>howdy</div>
+            <div>hi</div>
+        </div>
+        <div>
+            <span>hello</span>
+            <span>howdy</span>
+            <span>hi</span>
+        </div>
+    </div>
+
+
+    <footer style="background-color: ivory;">
+        <a href="https://www.amazon.jobs">Careers</a>
+        <a href="http://blogger.com">Blog</a>
+        <a href="">About</a>
+        <a href="">Help</a>
+    </footer>
 
     <!-- <script>
         prompt("hey now!");
