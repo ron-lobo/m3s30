@@ -1,5 +1,4 @@
-import Bank from './Bank.js';
-
+import Bank from "./Bank.js";
 
 main();
 
@@ -39,9 +38,9 @@ function toggleText() {
   }
 }
 
-window.updateDate = function() {
+window.updateDate = function () {
   document.getElementById("datePoint").innerHTML = new Date();
-}
+};
 
 function exists(array, value) {
   // for (let i = 0; i < array.length; i++) {

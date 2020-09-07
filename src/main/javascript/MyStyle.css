@@ -1,25 +1,25 @@
-
 body {
-    font-family: sans-serif;
-    background-color: beige;
+  font-family: sans-serif;
+  background-color: beige;
 }
 
 h2 {
-    color: navy;
-    font-size: 30px;
+  color: navy;
+  font-size: 30px;
 }
 
 .s30 {
-    text-align: justify;
-    /* color: rgb(255, 0, 0);
+  text-align: justify;
+  /* color: rgb(255, 0, 0);
     color: rgba(255, 0, 0, 0.2);
     color: hsl(123, 60, 88);
     color: hsla(123, 60, 88, 0.3); */
-    color: #00FF00;
+  color: #00ff00;
 }
 
-h1, h3 {
-    color: chocolate;    
+h1,
+h3 {
+  color: chocolate;
 }
 
 /* * {
@@ -28,15 +28,16 @@ h1, h3 {
 } */
 
 #para1 {
-    text-align: left;
-    color: pink;
+  text-align: left;
+  color: pink;
 }
 
 table {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
-td, tr {
-    border: 2px solid rebeccapurple;
-    padding: 0px
+td,
+tr {
+  border: 2px solid rebeccapurple;
+  padding: 0px;
 }

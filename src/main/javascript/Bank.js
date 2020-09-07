@@ -1,8 +1,6 @@
-
 export default class Bank {
-
-    #country;
-    #rank;
+  #country;
+  #rank;
 
   constructor(name, country, rank) {
     if (name === undefined) {
