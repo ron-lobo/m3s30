@@ -8,6 +8,7 @@ document.onload = function() {
   sumExercises();
   testBank();
   document.getElementById("gradButton").onclick = toggleText;
+  regexDemo();
 }();
 
 function intro() {
@@ -283,4 +284,26 @@ function testBank() {
   console.log(bank5);
 
   console.log(bank5.getRank());
+}
+
+function regexDemo() {
+    doSomething('Hello');
+    doSomething('hello');
+    // doSomething('HellO');
+    // doSomething('hELLo');
+    // doSomething('bye');
+    // doSomething('Hello There');
+    // doSomething('Hello World');
+    // doSomething('World Hello');
+    doSomething('hi Hello There');
+}
+
+function doSomething(str) {
+    console.log("doSomething: str=[" + str + "]");
+    if (str == "hello" || str == "Hello") {
+        console.log("doSomething: hello 1");
+    }
+    if (/hello|bye/i.exec(str)) {
+        console.log("doSomething: hello 2");
+    }
 }
