@@ -44,3 +44,53 @@ class StopWatch {
     this.#duration = d;
   }
 }
+
+function toggleText(id, start0, start1, suffix) {
+  let element = document.getElementById(id);
+  let start = element.innerHTML.startsWith(start0) ? start1 : start0;
+  element.innerHTML = start + " " + suffix;
+}
+
+function toggleVisibity(id) {
+  let datePoint = document.getElementById(id);
+  datePoint.style.visibility =
+    datePoint.style.visibility == "hidden" ? "visible" : "hidden";
+}
+
+function toggleTime() {
+  toggleText("timeButton", "show", "hide", "time");
+  toggleVisibity("timeParagraph");
+}
+
+function toggleGame() {
+  toggleText("playButton", "Play", "Quit", "Game");
+  toggleVisibity("gtn");
+}
+
+function updateDate() {
+  document.getElementById("datePoint").innerHTML = new Date();
+}
+
+function gtnAJAX() {
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    document.getElementById("showGames").innerHTML = this.responseText;
+  };
+  xhr.open("GET", "http://localhost:8080/gtn/game", true);
+  xhr.send();
+}
+
+function gtnFetch() {
+  fetch("http://localhost:8080/gtn/game")
+    .then(response => response.json())
+    .then(r =>
+      r.forEach(game =>
+        console.log(`${game.id}, ${game.answer}, ${game.finished}`)
+      )
+    )
+    .catch((err) => console.log("fail: " + err));
+}
+
+  
+toggleTime();
+toggleGame();
