@@ -90,6 +90,6 @@ function gtnFetch() {
     )
     .catch((err) => console.log("fail: " + err));
 }
-  
+
 toggleTime();
 toggleGame();
