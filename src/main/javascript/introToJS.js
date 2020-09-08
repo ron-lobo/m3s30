@@ -1,15 +1,16 @@
 import Bank from "./Bank.js";
 
-
-document.onload = function() {
+document.onload = (function () {
   console.log("hi");
   console.log("intro return value = " + intro());
   testExists();
   sumExercises();
   testBank();
-  document.getElementById("gradButton").onclick = toggleText;
+  document.getElementById("gradButton").onclick = function () {
+    toggleText(123);
+  };
   regexDemo();
-}();
+})();
 
 function intro() {
   let i = 0;
@@ -129,19 +130,9 @@ function sumExercises() {
 
   // Create a function that takes an array of share objects as argument and returns a string, as a HTML table
   shares = [
-    {
-      id: "123456",
-      currency: "USD",
-      symbol: "AAPL",
-      exchangeName: "NMS"
-    },
-    {
-      id: "454534",
-      currency: "USD",
-      symbol: "FB",
-      exchangeName: "NMS"
-    },
-    {id: "987646", currency: "USD",  symbol: "GOOG", exchangeName: "NMS"}
+    { id: "123456", currency: "USD", symbol: "AAPL", exchangeName: "NMS" },
+    { id: "454534", currency: "USD", symbol: "FB", exchangeName: "NMS" },
+    { id: "987646", currency: "USD", symbol: "GOOG", exchangeName: "NMS" },
   ];
   let htmlTable = createHtmlTable(shares);
   console.log("array to table: " + htmlTable);
@@ -149,7 +140,7 @@ function sumExercises() {
 }
 
 function createHtmlTable(shares) {
-    let myTable = `<table>
+  let myTable = `<table>
     <thead>
         <tr>
             <th>#</th>
@@ -161,18 +152,32 @@ function createHtmlTable(shares) {
         </tr>
     <tbody>`;
 
-    shares.forEach(function(e, i) {
-        myTable += "<tr>" +
-        "<td>" + (i + 1) + "</td>" +
-        "<td>" + e.id + "</td>" +
-        "<td>" + e.currency + "</td>" +
-        "<td>" + e.symbol + "</td>" +
-        "<td>" + e.exchangeName + "</td>" +
-        "<td>" + Math.floor((Math.random() * 83000 + 75))/100  + "</td>" + "</tr>";
-    })
-    let tblEnd = "</tbody></table>";
-    myTable += tblEnd;
-    return myTable;    
+  shares.forEach(function (e, i) {
+    myTable +=
+      "<tr>" +
+      "<td>" +
+      (i + 1) +
+      "</td>" +
+      "<td>" +
+      e.id +
+      "</td>" +
+      "<td>" +
+      e.currency +
+      "</td>" +
+      "<td>" +
+      e.symbol +
+      "</td>" +
+      "<td>" +
+      e.exchangeName +
+      "</td>" +
+      "<td>" +
+      Math.floor(Math.random() * 83000 + 75) / 100 +
+      "</td>" +
+      "</tr>";
+  });
+  let tblEnd = "</tbody></table>";
+  myTable += tblEnd;
+  return myTable;
 }
 
 function replaceInArray(replacement) {
@@ -287,23 +292,23 @@ function testBank() {
 }
 
 function regexDemo() {
-    doSomething('Hello');
-    doSomething('hello');
-    // doSomething('HellO');
-    // doSomething('hELLo');
-    // doSomething('bye');
-    // doSomething('Hello There');
-    // doSomething('Hello World');
-    // doSomething('World Hello');
-    doSomething('hi Hello There');
+  doSomething("Hello");
+  doSomething("hello");
+  // doSomething('HellO');
+  // doSomething('hELLo');
+  // doSomething('bye');
+  // doSomething('Hello There');
+  // doSomething('Hello World');
+  // doSomething('World Hello');
+  doSomething("hi Hello There");
 }
 
 function doSomething(str) {
-    console.log("doSomething: str=[" + str + "]");
-    if (str == "hello" || str == "Hello") {
-        console.log("doSomething: hello 1");
-    }
-    if (/hello|bye/i.exec(str)) {
-        console.log("doSomething: hello 2");
-    }
+  console.log("doSomething: str=[" + str + "]");
+  if (str == "hello" || str == "Hello") {
+    console.log("doSomething: hello 1");
+  }
+  if (/hello|bye/i.exec(str)) {
+    console.log("doSomething: hello 2");
+  }
 }
