@@ -61,23 +61,19 @@ public class Student {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		} else if (obj == null || !(obj instanceof Student)) {
-			return false;
-		} else {
-			Student other = (Student) obj;
-			return (id == other.id &&
-					Objects.equals(name, other.name) &&
-					Objects.equals(dob, other.dob) &&
-					Objects.equals(courses, other.courses) &&
-					Objects.equals(address, other.address));
-		}
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Student student = (Student) o;
+		return id == student.id &&
+				Objects.equals(name, student.name) &&
+				Objects.equals(dob, student.dob) &&
+				Objects.equals(courses, student.courses) &&
+				Objects.equals(address, student.address);
 	}
 
-
+	@Override
 	public int hashCode() {
-		return 0;
+		return Objects.hash(id, name, dob, courses, address);
 	}
 }

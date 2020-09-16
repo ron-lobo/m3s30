@@ -2,10 +2,16 @@ package com.m3.m3s30.javaInfo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Testing {
 
+	private Student student1 = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
+	private Student student1a = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
+	private Student student2 = new Student(2, "Sally", LocalDate.of(2001, 1, 1));
+	private Student student3 = new Student(3, "Jane", LocalDate.of(2002, 2, 2));
 
 	public static void main(String[] args) {
 		Testing testing = new Testing();
@@ -51,11 +57,9 @@ public class Testing {
 	}
 
 	private void testEquals(String s3) {
-		Student student1 = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
-		Student student2 = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
 		Student student3 = student2;
-		testEquality("student 3 vs 2", student3, student2);
-		testEquality("student 1 vs 2", student1, student2);
+		testEquality("student 1 vs 3", student1, student3);
+		testEquality("student 1 vs 1a", student1, student1a);
 
 		// Strings
 		String s1 = "abc";
@@ -81,9 +85,6 @@ public class Testing {
 	}
 
 	private void testHashCodes() {
-		Student student1 = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
-		Student student1a = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
-		Student student2 = new Student(2, "Sally", LocalDate.of(2000, 1, 1));
 
 		int i1 = student1.hashCode();
 		int i1a = student1a.hashCode();
@@ -91,8 +92,30 @@ public class Testing {
 
 		// ...
 
-
 		int i1_later = student1.hashCode();
 
+	}
+
+	private void testMap() {
+		Map<Student, String> studentGradesMap = new HashMap<>();
+		studentGradesMap.put(student1, "A");
+		studentGradesMap.put(student1, "A-");
+		studentGradesMap.put(student3, "A+");
+
+		// processing
+
+		String gradeForJame = studentGradesMap.get(student3);
+		studentGradesMap.clear();
+	}
+
+	private void testMap(Map<Student, String> studentGradesMap) {
+		return;
+	}
+
+
+	private void printStudents(List<Student> students) {
+//		if (students instanceof ArrayList) {
+//			((ArrayList<Student>) students).trimToSize();
+//		}
 	}
 }
