@@ -51,7 +51,7 @@ function toggleText(id, start0, start1, suffix) {
   element.innerHTML = start + " " + suffix;
 }
 
-function toggleVisibity(id) {
+function toggleVisibility(id) {
   let datePoint = document.getElementById(id);
   datePoint.style.visibility =
     datePoint.style.visibility == "hidden" ? "visible" : "hidden";
@@ -59,12 +59,12 @@ function toggleVisibity(id) {
 
 function toggleTime() {
   toggleText("timeButton", "show", "hide", "time");
-  toggleVisibity("timeParagraph");
+  toggleVisibility("timeParagraph");
 }
 
 function toggleGame() {
   toggleText("playButton", "Play", "Quit", "Game");
-  toggleVisibity("gtn");
+  toggleVisibility("gtn");
 }
 
 function updateDate() {
@@ -82,14 +82,34 @@ function gtnAJAX() {
 
 function gtnFetch() {
   fetch("http://localhost:8080/gtn/game")
-    .then(response => response.json())
-    .then(r =>
-      r.forEach(game =>
+    .then((response) => response.json())
+    .then((r) =>
+      r.forEach((game) =>
         console.log(`${game.id}, ${game.answer}, ${game.finished}`)
       )
     )
     .catch((err) => console.log("fail: " + err));
 }
 
+function promises() {
+  console.log("a1");
+
+  let myFirstPromise = new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve("work done (resolved)");
+    }, 500);
+  });
+
+  console.log("a2");
+
+  myFirstPromise.then((successMessage) => {
+    console.log("promise kept: " + successMessage);
+  });
+
+  console.log("a3");
+}
+
+promises();
+
 toggleTime();
-toggleGame();
+// toggleGame();

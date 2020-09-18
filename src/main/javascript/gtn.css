@@ -1,0 +1,36 @@
+table {
+  margin-top: 30px;
+  display: inline-block;
+  overflow: auto;
+
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th div {
+  margin-top: -30px;
+  position: absolute;
+}
+
+tr:nth-child(even) {
+  background: ivory;
+}
+tr:nth-child(odd) {
+  background: honeydew;
+}
+
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgb(240, 255, 243) 30%,
+    rgb(188, 213, 223) 80%
+  );
+  height: 100vh;
+}

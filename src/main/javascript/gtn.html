@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTN</title>
+    <link rel="stylesheet" type="text/css" href="MyStyle.css" />
+    <link rel="stylesheet" type="text/css" href="gtn.css" />
+    <script src="gtn.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Guess The Number</h1>
+
+    <h3 id="selectGameDiv"></h3>
+    <p>
+        <input type="number" id="guessText" oninput="maxLengthCheck(this)" min="0" maxlength="4"
+            title="Please enter 4 unique digits" />
+        <button id="guessButton" onclick='makeGuess()'>Guess</button>
+    </p>
+    <p><button id="newGameButton" onclick='newGame()'>New Game</button>
+    <p><button id="showGamesButton" onclick='showGames()'>Refresh</button></p>
+
+    <p>
+    <table style="height: 250px; width: 250px">
+        <thead>
+            <tr>
+                <th>
+                    <div>Game</div>
+                </th>
+                <th>
+                    <div>Answer</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="gamesDiv" />
+        </tbody>
+    </table>
+    <table style="height: 250px; width: 350px;">
+        <thead>
+            <tr>
+                <th>
+                    <div>Round</div>
+                </th>
+                <th>
+                    <div>Guess</div>
+                </th>
+                <th>
+                    <div>Exact</div>
+                </th>
+                <th>
+                    <div>Partial</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="roundsDiv" />
+    </table>
+
+</body>
+
+</html>

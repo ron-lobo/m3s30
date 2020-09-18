@@ -36,12 +36,6 @@ table {
   border: 1px solid black;
 }
 
-td,
-tr {
-  border: 2px solid rebeccapurple;
-  padding: 0px;
-}
-
 header, footer {
     background-color: cornsilk;
     padding: 10px;
