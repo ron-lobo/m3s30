@@ -5,8 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Testing {
+
+	private static final Logger logger = Logger.getLogger(Testing.class.getName());
 
 	private Student student1 = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
 	private Student student1a = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
@@ -14,9 +18,30 @@ public class Testing {
 	private Student student3 = new Student(3, "Jane", LocalDate.of(2002, 2, 2));
 
 	public static void main(String[] args) {
+
+		logger.log(Level.INFO, "my first log message (at INFO level)");
+		logger.log(Level.FINE, "my first log message (at FINE level)");
+		logger.log(Level.WARNING, "my first log message (at WARNING level)");
+
 		Testing testing = new Testing();
 		testing.demo1();
 		testing.testEquals("ab");
+	}
+
+	private void something(String x, int y) {
+		try {
+			while (true) {
+				// logger.log(Level.FINE, "info %s : %d",  x, y);
+				logger.log(Level.FINE, String.format("info %s : %d", x, y));
+				if (logger.getLevel() == Level.FINE) {
+					logger.log(Level.FINE, "info" + x + " : " + y);
+				}
+				//
+			}
+		} catch (Exception e) {
+			logger.log(Level.SEVERE, "exception info" + e.getMessage());
+			logger.severe("exception info" + e.getMessage());
+		}
 	}
 
 	public void demo1() {
