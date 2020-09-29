@@ -1,16 +1,18 @@
 package com.m3.m3s30.javaInfo;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Testing {
 
 	private static final Logger logger = Logger.getLogger(Testing.class.getName());
+
+	private List<Integer> ints = new ArrayList<>();
+	private List<Integer> ints2 = List.of(123, 456, 0);
+	private List<Integer> ints2a = List.of(123, 456, 0, 4);
+	private List<Integer> ints2c = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5);
 
 	private Student student1 = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
 	private Student student1a = new Student(1, "Henry", LocalDate.of(2000, 1, 1));
@@ -28,7 +30,16 @@ public class Testing {
 		testing.testEquals("ab");
 	}
 
-	private void something(String x, int y) {
+	private void collectionsExample(List<String> strings) {
+
+		// Collections c = new Collections();		// class with public static utility methods
+		Collections.sort(strings);
+		Collections.shuffle(strings);
+
+		strings.sort(null);							// uses default interface method added in Java 8
+	}
+
+	private void loggingExample(String x, int y) {
 		try {
 			while (true) {
 				// logger.log(Level.FINE, "info %s : %d",  x, y);
