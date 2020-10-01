@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class J8Interfaces {
 
 	public static void main(String[] args) {
-		System.out.println("Features Introduced in Java 8: Interfaces()");
+		Utils.print("Features Introduced in Java 8: Interfaces()");
 
 		Java8Interface.hiWorld("new interface");
 	}
@@ -14,9 +14,7 @@ public class J8Interfaces {
 
 		// static methods - these must be defined in the interface and cannot be overridden
 		static String hiWorld(String s) {
-			String result = String.format("hi %s world", s);
-			System.out.println(result);
-			return result;
+			return Utils.print("hi", s, "world");
 		}
 
 		void method(String str);

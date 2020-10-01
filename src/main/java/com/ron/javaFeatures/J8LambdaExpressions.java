@@ -6,10 +6,6 @@ public class J8LambdaExpressions {
 	public static final String AND = "and";
 	public static final String INTRO_JOB = "I am a";
 
-	public static final String s = "123";
-	public static final Intro0 lambdaD = () -> Utils.print(INTRO_NAME, "Mr Anon E Mouse");
-
-
 	public static void main(String[] args) {
 		Utils.print("Features Introduced in Java 8: LambdaExpressions");
 		J8LambdaExpressions j8 = new J8LambdaExpressions();
@@ -32,32 +28,28 @@ public class J8LambdaExpressions {
 	}
 
 
-
 	private class MyIntro2 implements Intro2 {
+		@Override
 		public String introduce(String name, String job) {
 			return Utils.print(INTRO_NAME, name, AND, INTRO_JOB, job);
 		}
 	}
 
-
 	private void lambdaExpressions() {
-		System.out.println("lambdaExpressions");
+		Utils.newMethod("lambdaExpressions");
 
 		Intro2 objA = new MyIntro2();
-		StringBuilder sb = new StringBuilder("123");
 
 		Intro2 objB = new Intro2() {
 			@Override
 			public String introduce(String name, String job) {
-//				objA.introduce(null, null);
-//				sb.append("456");
-				return Utils.print(INTRO_NAME, sb, AND, INTRO_JOB, job);
+				return Utils.print(INTRO_NAME, name, AND, INTRO_JOB, job);
 			}
 		};
 
 
 		Intro2 lambdaA1 = (String name, String job) -> {
-			return Utils.print(INTRO_NAME, sb, AND, INTRO_JOB, job);
+			return Utils.print(INTRO_NAME, name, AND, INTRO_JOB, job);
 		};
 
 
